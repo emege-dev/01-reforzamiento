@@ -41,7 +41,7 @@ const authReducer= ( state: AuthState, action: AuthAction ): AuthState=>
 
 export const Login = ()=> 
 {
-    const [ { validando, token, nombre } , dispatch ] = useReducer( authReducer, initialState );
+    const [ { validando, token, nombre, userName } , dispatch ] = useReducer( authReducer, initialState );
 
     useEffect( ( )=> 
     {
@@ -92,7 +92,7 @@ export const Login = ()=>
 
 
         {
-            ( token ) ?  <div className="alert alert-success"> Autenticado como { nombre } </div> : <div className="alert alert-danger"> No autenticado </div>
+            ( token ) ?  <div className="alert alert-success"> Autenticado como { userName } </div> : <div className="alert alert-danger"> No autenticado </div>
         }
 
         {
