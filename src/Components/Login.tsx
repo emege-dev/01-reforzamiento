@@ -9,7 +9,7 @@ interface AuthState
     nombre: string
 }
 
-type loginPayload = {username: string, nombre: string }
+type loginPayload = {userName: string, nombre: string }
 
 type AuthAction = { type: 'logout' } | { type: 'login', payload: loginPayload };
 
@@ -30,8 +30,8 @@ const authReducer= ( state: AuthState, action: AuthAction ): AuthState=>
             return {validando: false, token: null, nombre: '', userName:''}
 
         case 'login':
-            const { nombre, username } = action.payload;
-            return {validando: false, token: 'ABC123', nombre: nombre, userName: username}
+            const { nombre, userName } = action.payload;
+            return {validando: false, token: 'ABC123',  nombre,  userName}
 
         default:
             return state;
@@ -41,7 +41,7 @@ const authReducer= ( state: AuthState, action: AuthAction ): AuthState=>
 
 export const Login = ()=> 
 {
-    const [ { validando, token, nombre, userName } , dispatch ] = useReducer( authReducer, initialState );
+    const [ { validando, token,  userName } , dispatch ] = useReducer( authReducer, initialState );
 
     useEffect( ( )=> 
     {
@@ -59,7 +59,7 @@ export const Login = ()=>
                 payload: 
                 {
                     nombre: 'Enrique', 
-                    username: 'Sicario'
+                    userName: 'Sicario'
                 } 
             } )
     }
@@ -92,11 +92,15 @@ export const Login = ()=>
 
 
         {
-            ( token ) ?  <div className="alert alert-success"> Autenticado como { userName } </div> : <div className="alert alert-danger"> No autenticado </div>
+            ( token ) 
+                    ?  <div className="alert alert-success"> Autenticado como { userName } </div> 
+                    :  <div className="alert alert-danger"> No autenticado </div>
         }
 
         {
-            ( token ) ? ( <button className="btn btn-danger" onClick={logout}> Logout </button>) : ( <button className="btn btn-primary" onClick={ login }>Login </button> )
+            ( token ) 
+                    ?  <button className="btn btn-danger" onClick={ logout }> Logout </button>
+                    :  <button className="btn btn-primary" onClick={ login }>Login </button> 
         }
 
     </>
