@@ -1,11 +1,12 @@
 //import { ObjetosLiterales } from "./typescript/ObjetosLiterales";
 //import { TiposBasicos } from './typescript/TiposBasicos';
 //import { Funciones } from './typescript/Funciones';
-// import { Contador } from './Components/Contador';
+//import { Contador } from './Components/Contador';
 //import { ContadorConHook } from './Components/ContadorConHook';
 //import { Login } from './Components/Login';
+//import { Usuarios } from "./Components/Usuarios";
 
-import { Usuarios } from "./Components/Usuarios";
+import { Formularios } from "./Components/Formularios";
 
 const App = () => {
   return (
@@ -16,9 +17,10 @@ const App = () => {
       {/*<ObjetosLiterales/>*/}
       {/*<Funciones/>*/}
       {/*<Contador/> */}
-      {/*  <ContadorConHook/> */}
+      {/*<ContadorConHook/> */}
       {/* <Login/> */}
-      <Usuarios/> 
+      {/*<Usuarios/> */}
+      <Formularios/>
     </div>
   )
 }
