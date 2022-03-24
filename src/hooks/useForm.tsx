@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-export const useForm = ( formulario )=> 
+export const useForm = < FormType extends Object >( formulario: FormType )=> 
 {
     
-  const [state, setState] = useState(  );
+  const [state, setState] = useState( formulario  );
 
-  const onChange = ( value: string, campo: string)=> 
+  const onChange = ( value: string, campo: keyof FormType )=> 
   { 
-    setState( { ...formulario, [campo]: value} );
+    setState( { ...state, [campo]: value} );
   }
 
-  return { ...formulario, onChange, formulario }
+  return { ...state, formulario: state, onChange  }
 }
